@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,23 +5,22 @@ namespace UI.Joystick
 {
     public class Movement : MonoBehaviour, IDragHandler, IEndDragHandler
     {
-        private RectTransform _rectTransform;
-        private float _startPositionY;
-
-        private void Awake()
-        {
-            _rectTransform = GetComponent<RectTransform>();
-            _startPositionY = _rectTransform.anchoredPosition.y;
-        } 
+        [SerializeField] private float range;
         
-        public void OnDrag(PointerEventData eventData)
+        private RectTransform _rectTransform;
+        
+        private void Awake() => _rectTransform = GetComponent<RectTransform>(); 
+        
+        public void OnDrag(PointerEventData eventData) => UpdatePosition(eventData);
+        
+        public void OnEndDrag(PointerEventData eventData) => _rectTransform.anchoredPosition = new Vector2(0, 0);
+       
+        private void UpdatePosition(PointerEventData eventData)
         {
-            _rectTransform.anchoredPosition += new Vector2(0, eventData.delta.y);
-        }
+            var deltaY = eventData.delta.y;
+            var anchoredPositionY = _rectTransform.anchoredPosition.y;
 
-        public void OnEndDrag(PointerEventData eventData)
-        {
-            _rectTransform.anchoredPosition = new Vector2(0, 0);
+            if (anchoredPositionY <= 0 && anchoredPositionY >= range) _rectTransform.anchoredPosition += new Vector2(0, deltaY);
         }
     }
 }
