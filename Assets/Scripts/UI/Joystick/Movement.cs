@@ -4,18 +4,22 @@ using UnityEngine.EventSystems;
 
 namespace UI.Joystick
 {
-    public class Movement : MonoBehaviour, IDragHandler, IEndDragHandler
+    public class Movement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [Header("SetUp")]
         [SerializeField] private float range;
 
         [Header("Output")] 
         [SerializeField] private FloatValue valueOutput;
+
+        [SerializeField] private BoolValue isTouching;
         
         private RectTransform _rectTransform;
         
         private void Awake() => _rectTransform = GetComponent<RectTransform>();
 
+        public void OnBeginDrag(PointerEventData eventData) => isTouching.Value = true;
+        
         public void OnDrag(PointerEventData eventData)
         { 
             UpdatePosition(eventData);
@@ -25,7 +29,10 @@ namespace UI.Joystick
         public void OnEndDrag(PointerEventData eventData)
         {
             _rectTransform.anchoredPosition = new Vector2(0, 0);
+            
             UpdateOutput(0);
+            
+            isTouching.Value = false;
         }
 
         private void UpdatePosition(PointerEventData eventData)

@@ -114,6 +114,10 @@ PrefabInstance:
       value: JoyStick_Left
       objectReference: {fileID: 0}
     - target: {fileID: 2398973129868968922, guid: 97731d8f9e9145146b0215899a2d5978, type: 3}
+      propertyPath: isTouching
+      value: 
+      objectReference: {fileID: 11400000, guid: 996dc2b0df94f6644a35c148ef272010, type: 2}
+    - target: {fileID: 2398973129868968922, guid: 97731d8f9e9145146b0215899a2d5978, type: 3}
       propertyPath: valueOutput
       value: 
       objectReference: {fileID: 11400000, guid: 328282e9d996cb94791b7f2743cec362, type: 2}
@@ -179,6 +183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JoyStick_Right
       objectReference: {fileID: 0}
+    - target: {fileID: 2398973129868968922, guid: 97731d8f9e9145146b0215899a2d5978, type: 3}
+      propertyPath: isTouching
+      value: 
+      objectReference: {fileID: 11400000, guid: ec1d158f6ea9a274395989741a068ee7, type: 2}
     - target: {fileID: 2398973129868968922, guid: 97731d8f9e9145146b0215899a2d5978, type: 3}
       propertyPath: valueOutput
       value: 
