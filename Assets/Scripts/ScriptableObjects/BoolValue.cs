@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UI.ScriptableObjects
+namespace ScriptableObjects
 {
     [CreateAssetMenu(menuName = "ScriptableObjects/Values/Bool", fileName = "NewBoolValue")]
     public class BoolValue : ScriptableObject
