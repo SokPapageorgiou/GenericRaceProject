@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace UI.Joystick
 {
-    public class Movement : MonoBehaviour, IDragHandler, IEndDragHandler
+    public class Movement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [Header("SetUp")]
         [SerializeField] private float range;
@@ -14,8 +14,13 @@ namespace UI.Joystick
         
         private RectTransform _rectTransform;
         
-        private void Awake() => _rectTransform = GetComponent<RectTransform>(); 
-        
+        private void Awake() => _rectTransform = GetComponent<RectTransform>();
+
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            //throw new System.NotImplementedException();
+        }
+
         public void OnDrag(PointerEventData eventData)
         { 
             UpdatePosition(eventData);
@@ -26,18 +31,18 @@ namespace UI.Joystick
         {
             _rectTransform.anchoredPosition = new Vector2(0, 0);
             UpdateOutput(0);
-        } 
-       
-        private void UpdatePosition(PointerEventData eventData)
-        {
-            var deltaY = eventData.delta.y;
-            var anchoredPositionY = _rectTransform.anchoredPosition.y;
-
-            if (anchoredPositionY <= 0 && anchoredPositionY > range) _rectTransform.anchoredPosition += new Vector2(0, deltaY);
         }
 
-        private void UpdateOutput(float positionY) => valueOutput.Value = NormilizeOutput(positionY); 
-        
+        private void UpdatePosition(PointerEventData eventData)
+        {
+            var posY = _rectTransform.anchoredPosition.y + eventData.delta.y;
+            posY = Mathf.Clamp(posY, range, 0);
+
+            _rectTransform.anchoredPosition = new Vector2(0, posY);
+        }
+
+        private void UpdateOutput(float positionY) => valueOutput.Value = NormilizeOutput(positionY);
+
         private float NormilizeOutput(float positionY) => positionY / range;
     }
 }
