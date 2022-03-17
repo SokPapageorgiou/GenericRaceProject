@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace UI.Joystick
 {
-    public class Movement : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class Movement : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         [Header("SetUp")]
         [SerializeField] private float range;
@@ -15,11 +15,6 @@ namespace UI.Joystick
         private RectTransform _rectTransform;
         
         private void Awake() => _rectTransform = GetComponent<RectTransform>();
-
-        public void OnBeginDrag(PointerEventData eventData)
-        {
-            //throw new System.NotImplementedException();
-        }
 
         public void OnDrag(PointerEventData eventData)
         { 
