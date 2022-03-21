@@ -7,15 +7,17 @@ namespace Unit
     public class Unit : MonoBehaviour, ICar
     {
         [Header("Acceleration")] 
-        [SerializeField] private float magnitude; 
+        [SerializeField] private float magnitude;
+        [SerializeField] private float maxSpeed;
+
+        private Rigidbody _rigidbody;
         
         public Acceleration Acceleration { get; set; }
-        private Rigidbody _rigidbody;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
-            Acceleration = new Acceleration(magnitude, _rigidbody);
+            Acceleration = new Acceleration(magnitude, maxSpeed, _rigidbody);
         } 
            
         

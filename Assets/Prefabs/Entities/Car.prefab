@@ -62,7 +62,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 4
   m_CollisionDetection: 0
 --- !u!114 &9199262042505204934
 MonoBehaviour:
@@ -77,6 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   magnitude: 10
+  maxSpeed: 50
 --- !u!1001 &6532519912531493256
 PrefabInstance:
   m_ObjectHideFlags: 0
