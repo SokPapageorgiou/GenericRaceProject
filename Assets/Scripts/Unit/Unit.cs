@@ -18,8 +18,6 @@ namespace Unit
         {
             _rigidbody = GetComponent<Rigidbody>();
             Acceleration = new Acceleration(magnitude, maxSpeed, _rigidbody);
-        } 
-           
-        
+        }
     }
 }
