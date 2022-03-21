@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2495232519419796060}
   - component: {fileID: 2741565101678609667}
   - component: {fileID: 1766622416983898851}
-  - component: {fileID: 6990766411223949875}
+  - component: {fileID: 9199262042505204934}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -64,7 +64,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6990766411223949875
+--- !u!114 &9199262042505204934
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,14 +73,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 675425542173020676}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de24aa1092f3560438ddcbe23d45ae00, type: 3}
+  m_Script: {fileID: 11500000, guid: fd07ba67febb483d97d4d39f6c828e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTouchingLeft: {fileID: 11400000, guid: 996dc2b0df94f6644a35c148ef272010, type: 2}
-  isTouchingRight: {fileID: 11400000, guid: ec1d158f6ea9a274395989741a068ee7, type: 2}
-  joystickLeftOutput: {fileID: 11400000, guid: 328282e9d996cb94791b7f2743cec362, type: 2}
-  joystickRightOutput: {fileID: 11400000, guid: 8d1e24ed8a3f6bd459c18aebf3fd8ab8, type: 2}
-  rigidBody: {fileID: 1766622416983898851}
+  magnitude: 10
 --- !u!1001 &6532519912531493256
 PrefabInstance:
   m_ObjectHideFlags: 0
