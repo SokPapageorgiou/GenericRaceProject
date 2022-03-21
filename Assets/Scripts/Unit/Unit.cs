@@ -1,4 +1,3 @@
-using System;
 using Accelerations;
 using UnityEngine;
 
