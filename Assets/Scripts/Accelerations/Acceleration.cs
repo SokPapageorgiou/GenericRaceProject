@@ -5,24 +5,35 @@ namespace Accelerations
 {
     public class Acceleration : ISystemPhysical
     {
-        private Rigidbody _rigidBody;
-        private Vector3 _vector;
+        private Rigidbody _rigidbody;
+        private float _magnitude;
         private float _maxSpeed;
+        private Transform _transform;
 
-        public Acceleration(float magnitude, float maxSpeed, Rigidbody rb)
+        public Acceleration(float magnitude, float maxSpeed, Rigidbody rb, Transform transform)
         {
-            _vector = new Vector3(0, 0, magnitude);
-            _rigidBody = rb;
+            _magnitude = magnitude;
+            _rigidbody = rb;
             _maxSpeed = maxSpeed;
+            _transform = transform;
         }
 
         public void FixedUpdate(int touchNumbers)
         {
-            if (touchNumbers == 2)
-                _rigidBody.AddForce(_vector, ForceMode.Acceleration);
+            AddForce(touchNumbers);
+            ConstrainSpeed();
+        }
 
-            if (_rigidBody.velocity.magnitude > _maxSpeed)
-                _rigidBody.velocity = _rigidBody.velocity.normalized * _maxSpeed;
+        private void AddForce(int touchNumbers)
+        {
+            if (touchNumbers == 2)
+                _rigidbody.AddForce(_transform.forward * _magnitude, ForceMode.Acceleration);
+        }
+
+        private void ConstrainSpeed()
+        {
+            if (_rigidbody.velocity.magnitude > _maxSpeed)
+                _rigidbody.velocity = _rigidbody.velocity.normalized * _maxSpeed;
         }
     }
 }
