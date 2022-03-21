@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magnitude: 20
   maxSpeed: 100
+  angularSpeed: 90
 --- !u!1001 &6532519912531493256
 PrefabInstance:
   m_ObjectHideFlags: 0
