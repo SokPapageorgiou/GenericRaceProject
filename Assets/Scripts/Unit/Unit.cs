@@ -1,5 +1,3 @@
-using Accelerations;
-using Steerings;
 using UnityEngine;
 
 namespace Unit
@@ -14,16 +12,13 @@ namespace Unit
         [Header("Steering")]
         [SerializeField] private float angularSpeed;
         
-        private Rigidbody _rigidbody;
+        [Header("Dependencies")]
+        [SerializeField] private new Rigidbody rigidbody;
         
-        public Acceleration Acceleration { get; set; }
-        public Steering Steering { get; set; }
-
-        private void Awake()
-        {
-            _rigidbody = GetComponent<Rigidbody>();
-            Acceleration = new Acceleration(magnitude, maxSpeed, _rigidbody, this.transform);
-            Steering = new Steering(angularSpeed, _rigidbody);
-        }
+        public float Magnitude => magnitude;
+        public float MaxSpeed => maxSpeed;
+        public float AngularSpeed => angularSpeed;
+        public Rigidbody Rigidbody => rigidbody;
+        public Transform Transform => transform;
     }
 }

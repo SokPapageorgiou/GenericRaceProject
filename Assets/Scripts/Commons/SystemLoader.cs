@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using Drivers.Accelerations;
+using Drivers.Steerings;
 using ScriptableObjects;
 using Unit;
 using UnityEngine;
@@ -13,15 +15,24 @@ namespace Commons
         
         private IEnumerable<ICar> _cars;
 
-        private void Awake() 
-            => _cars = FindObjectsOfType<MonoBehaviour>().OfType<ICar>();
+        private Acceleration _acceleration;
+        private Steering _steering;
+
+        private void Awake()
+        {
+            _cars = FindObjectsOfType<MonoBehaviour>().OfType<ICar>();
+
+            _acceleration = new Acceleration();
+            _steering = new Steering();
+        }
+           
         
         private void FixedUpdate()
         {
-            foreach (var entity in _cars)
+            foreach (var car in _cars)
             {
-                entity.Acceleration.FixedUpdate(Input.touchCount);
-                entity.Steering.FixedUpdate(leftInput.Value, rightInput.Value);
+                _acceleration.FixedUpdate(car, Input.touchCount);
+                _steering.FixedUpdate(car, leftInput.Value, rightInput.Value);
             }
         }
     }

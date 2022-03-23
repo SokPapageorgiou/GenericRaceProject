@@ -79,6 +79,7 @@ MonoBehaviour:
   magnitude: 20
   maxSpeed: 100
   angularSpeed: 90
+  rigidbody: {fileID: 1766622416983898851}
 --- !u!1001 &6532519912531493256
 PrefabInstance:
   m_ObjectHideFlags: 0
