@@ -11,7 +11,6 @@ namespace UI.Joystick
 
         [Header("Output")] 
         [SerializeField] private FloatValue valueOutput;
-
         [SerializeField] private BoolValue isTouching;
         
         private RectTransform _rectTransform;
@@ -43,8 +42,8 @@ namespace UI.Joystick
             _rectTransform.anchoredPosition = new Vector2(0, posY);
         }
 
-        private void UpdateOutput(float positionY) => valueOutput.Value = NormilizeOutput(positionY);
+        private void UpdateOutput(float positionY) => valueOutput.Value = NormalizeOutput(positionY);
 
-        private float NormilizeOutput(float positionY) => positionY / range;
+        private float NormalizeOutput(float positionY) => positionY / range;
     }
 }
