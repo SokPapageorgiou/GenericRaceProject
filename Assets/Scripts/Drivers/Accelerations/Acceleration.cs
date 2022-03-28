@@ -6,15 +6,15 @@ namespace Drivers.Accelerations
 {
     public class Acceleration : ISystemPhysical
     {
-        public void FixedUpdate(ICar car, int touchNumbers)
+        public void FixedUpdate(ICar car, int touchNumbers, float inputSum)
         {
-            AddForce(car, touchNumbers);
+            AddForce(car, touchNumbers, inputSum); 
             ConstrainSpeed(car);
         }
 
-        private void AddForce(ICar car, int touchNumbers)
+        private void AddForce(ICar car, int touchNumbers, float inputSum)
         {
-            if (touchNumbers == 2)
+            if (touchNumbers == 2 && inputSum < car.MinInputSum)
                 car.Rigidbody.AddForce(car.Transform.forward * car.Magnitude, ForceMode.Acceleration);
         }
 

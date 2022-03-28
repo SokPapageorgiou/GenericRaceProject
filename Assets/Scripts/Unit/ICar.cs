@@ -6,6 +6,7 @@ namespace Unit
     {
         public float Magnitude { get;}
         public float MaxSpeed { get;}
+        public float MinInputSum { get;}
 
         public float AngularSpeed { get;}
         

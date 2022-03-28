@@ -29,9 +29,10 @@ namespace Commons
         
         private void FixedUpdate()
         {
+            var inputSum = leftInput.Value + rightInput.Value;
             foreach (var car in _cars)
             {
-                _acceleration.FixedUpdate(car, Input.touchCount);
+                _acceleration.FixedUpdate(car, Input.touchCount, inputSum);
                 _steering.FixedUpdate(car, leftInput.Value, rightInput.Value);
             }
         }
