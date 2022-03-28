@@ -32,7 +32,11 @@ namespace Commons
             var inputSum = leftInput.Value + rightInput.Value;
             foreach (var car in _cars)
             {
-                _acceleration.FixedUpdate(car, Input.touchCount, inputSum);
+                if(inputSum >= car.AMinInputSum) 
+                    _acceleration.FixedUpdate(car, Input.touchCount, inputSum, car.AMinInputSum);
+                else if(inputSum <= car.BMaxInputSum)
+                    _acceleration.FixedUpdate(car, Input.touchCount, inputSum, car.BMaxInputSum);
+                    
                 _steering.FixedUpdate(car, leftInput.Value, rightInput.Value);
             }
         }

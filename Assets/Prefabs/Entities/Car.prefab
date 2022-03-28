@@ -76,9 +76,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd07ba67febb483d97d4d39f6c828e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnitude: 20
-  maxSpeed: 100
-  minInputSum: 1
+  aMagnitude: 20
+  aMaxSpeed: 100
+  aMinInputSum: 1
+  bMagnitude: -5
+  bMaxSpeed: 20
+  bMaxInputSum: 0.3
   angularSpeed: 90
   rigidbody: {fileID: 1766622416983898851}
 --- !u!1001 &6532519912531493256

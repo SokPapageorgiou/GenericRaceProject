@@ -4,9 +4,13 @@ namespace Unit
 {
     public interface ICar
     {
-        public float Magnitude { get;}
-        public float MaxSpeed { get;}
-        public float MinInputSum { get;}
+        public float AMagnitude { get;}
+        public float AMaxSpeed { get;}
+        public float AMinInputSum { get;}
+        
+        public float BMagnitude { get;}
+        public float BMaxSpeed { get;}
+        public float BMaxInputSum { get;}
 
         public float AngularSpeed { get;}
         

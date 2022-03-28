@@ -14,7 +14,6 @@ namespace UI.Joystick
 
         private RectTransform _rectTransform;
         
-
         private void Awake() => _rectTransform = GetComponent<RectTransform>();
 
         public void OnDrag(PointerEventData eventData)
